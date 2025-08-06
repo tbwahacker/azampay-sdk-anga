@@ -125,7 +125,7 @@ AZAMPAY_APP_NAME=your-azam-app-name-here
 AZAMPAY_CLIENT_ID=your-client-id-here
 AZAMPAY_CLIENT_SECRET=your-secret-here
 ```
-
+AzamPay Success Message Example
 ![AzamPay Success Message Example](screenshots/success_request.png)
 
 
