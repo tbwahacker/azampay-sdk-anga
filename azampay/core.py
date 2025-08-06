@@ -33,7 +33,7 @@ class AzamPay:
             missing_keys.append("AZAMPAY_CLIENT_SECRET")
 
         if missing_keys:
-            raise EnvironmentError(f"Missing required environment variables: {', '.join(missing_keys)}")
+            raise EnvironmentError(f"Missing required environment variables: {', '.join(missing_keys)} in .env file")
 
         url = f"{AzamPay.get_env_urls()['auth_url']}/AppRegistration/GenerateToken"
         headers = {"Content-Type": "application/json"}
