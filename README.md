@@ -15,9 +15,6 @@ whereby the first version i have only started with MNO payments (Mobile Paymment
 - Azampesa
 - CRDB
 - NMB
-- NBC
-- TPB
-- EXIM
 
 
 ## Installation
