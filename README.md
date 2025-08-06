@@ -3,11 +3,27 @@
 This SDK allows integration with AzamPay payment services.
 whereby the first version i have only started with MNO payments (Mobile Paymments) only. The bank payments will follow in the next released version
 
+![PyPI - Downloads](https://img.shields.io/pypi/dm/azampay-sdk-anga)
+![PyPI version](https://img.shields.io/pypi/v/azampay-sdk-anga)
+
+# ## Supported Banks
+
+- Mpesa
+- Airtel Money
+- Halopesa
+- Mix by yas
+- Azampesa
+- CRDB
+- NMB
+- NBC
+- TPB
+- EXIM
+
+
 ## Installation
 
 ```bash
 pip install azampay-sdk-anga
-pip install python-dotenv
 ```
 
 ## Usage
@@ -128,6 +144,12 @@ AZAMPAY_CLIENT_SECRET=your-secret-here
 AzamPay Success Message Example
 ![AzamPay Success Message Example](screenshots/success_request.png)
 
+## Credits and Inspiration
+1. Thanks much to AzamPay for this support
+2. Tanzania Developers you are now free using the AzamPay python api
+
+## Issues
+Please open an issue here [**GITHUB**](https://github.com/tbwahacker/azampay-sdk-anga/)
 
 ## HAPPY ENJOY MAKING PAYMENTS. DON'T FORGET BUYING ME A ☕COFEE 😂😂😂
 ## 0685750593 / 0768571150 or gmail : twaloadam@gmail.com / anganileadam87@gmail.com

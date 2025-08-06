@@ -19,5 +19,5 @@ class CheckoutError(AzamPayException):
 class EnvironmentError(AzamPayException):
     """Raised when required environment variables are missing."""
     def __init__(self, key=None):
-        message = f"Missing required environment variable: {key} in .env file" if key else "Missing required environment variable  in .env file"
+        message = f"Missing required environment variable: {key} in .env file" if key else "Missing required environment variable"
         super().__init__(message)

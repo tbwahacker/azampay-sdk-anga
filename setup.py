@@ -22,4 +22,10 @@ setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.6',
+    project_urls={
+        'Documentation': 'https://github.com/tbwahacker/azampay-sdk-anga#readme',
+        'Banks Supported': 'https://github.com/tbwahacker/azampay-sdk-anga#supported-banks',
+        'Source': 'https://github.com/tbwahacker/azampay-sdk-anga',
+        'Tracker': 'https://github.com/tbwahacker/azampay-sdk-anga/issues',
+    },
 )
