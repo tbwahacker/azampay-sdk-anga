@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "azampay-sdk-anga"
-version = "0.1.1"
+version = "0.1.2"
 description = "A dynamic Python SDK for AzamPay (AzamPay Python SDK used for native python, Django, Flask, FastApi e.t.c)"
 readme = "README.md"
 authors = [{ name = "Anganile Adam (Anga)", email = "twaloadam@gmail.com" }]
