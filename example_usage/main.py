@@ -52,9 +52,9 @@ def main():
     #     print("Response:")
     #     print(response)
     #
-    # except Exception as e:
-    #     print("Transaction failed:")
-    #     print(str(e))
+    except Exception as e:
+        print("Transaction failed:")
+        print(str(e))
 
 if __name__ == "__main__":
     main()
