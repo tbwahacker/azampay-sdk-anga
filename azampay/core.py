@@ -46,7 +46,7 @@ class AzamPay:
                 "clientSecret": client_secret
             }
 
-            response = requests.post(url, json=payload, headers=headers, timeout=10)
+            response = requests.post(url, json=payload, headers=headers, timeout=50)
             if response.status_code == 200:
                 return response.json().get("data", {}).get("accessToken")
             else:
@@ -111,7 +111,7 @@ class AzamPay:
                 "provider": provider
             }
 
-            response = requests.post(url, json=payload, headers=headers, timeout=10)
+            response = requests.post(url, json=payload, headers=headers, timeout=50)
             if response.status_code in [200, 201]:
                 return response.json(), external_id
             else:
