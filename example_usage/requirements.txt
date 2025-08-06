@@ -1,0 +1,2 @@
+python-dotenv==1.1.1
+azampay-sdk-anga=1.0.0
