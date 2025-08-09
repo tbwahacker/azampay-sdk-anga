@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='azampay-sdk-anga',
-    version='0.1.8',
+    version='0.1.9',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -14,6 +14,7 @@ setup(
     description='A dynamic Python SDK for AzamPay (AzamPay Python SDK used for native python, Django, Flask, FastApi e.t.c)',
     long_description=long_description,
     long_description_content_type='text/markdown',
+    keywords=["sdk", "api client", "payments", "integration", "python"],
     author='Anganile Adam (Anga)',
     author_email='twaloadam@gmail.com',
     url='https://github.com/tbwahacker/azampay-sdk-anga',
