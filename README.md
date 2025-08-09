@@ -8,6 +8,9 @@ whereby Initially the versions below 0.1.8 were only having MNO payments (Mobile
 [![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga)](https://pepy.tech/projects/azampay-sdk-anga)
 ![PyPI version](https://img.shields.io/pypi/v/azampay-sdk-anga)
 
+<p align="start">
+    <img src="/screenshots/azampay-logo.png" width="300" title="Azampay Logo" alt="Azampay Logo">
+</p>
 
 # ## Supported Banks
 
@@ -145,8 +148,10 @@ AzamPay Success Message Example
 ![AzamPay Success Message Example](screenshots/success_request.png)
 
 ## Credits and Inspiration
-1. Thanks much to AzamPay for this support
-2. Tanzania Developers you are now free using the AzamPay python api
+1. [Anganile Adam (Anga)](https://github.com/tbwahacker)
+2. Thanks much to AzamPay for this support [Azampay Documentation](https://developerdocs.azampay.co.tz/redoc).
+3. Tanzania Developers you are now free using the AzamPay python api
+4. [All Contributors](../../contributors)
 
 ## Issues
 Please open an issue here [**GITHUB**](https://github.com/tbwahacker/azampay-sdk-anga/)
@@ -154,4 +159,10 @@ Please open an issue here [**GITHUB**](https://github.com/tbwahacker/azampay-sdk
 ## HAPPY ENJOY MAKING PAYMENTS. DON'T FORGET BUYING ME A ☕COFEE 😂😂😂
 ## 0685750593 / 0768571150 or gmail : twaloadam@gmail.com / anganileadam87@gmail.com
 
+If you find this package useful, you can support us by staring this repository and sharing it with others.
+
+## Licence
+The MIT License (MIT).
+
+## Contribute
 """"  Feel Free to contribute by forking the Repo """"
