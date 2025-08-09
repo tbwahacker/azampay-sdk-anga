@@ -6,5 +6,3 @@ dist/
 build/
 *.egg-info/
 venv/
-setup.py
-pyproject.toml

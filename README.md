@@ -3,10 +3,9 @@
 This SDK allows integration with AzamPay payment services.
 whereby the first version i have only started with MNO payments (Mobile Paymments) only. The bank payments will follow in the next released version
 
-![PyPI - Downloads (Daily)](https://img.shields.io/pypi/dd/azampay-sdk-anga)
-![PyPI - Downloads (Weekly)](https://img.shields.io/pypi/dw/azampay-sdk-anga)
-![PyPI - Downloads (Monthly)](https://img.shields.io/pypi/dm/azampay-sdk-anga)
 ![PyPI version](https://img.shields.io/pypi/v/azampay-sdk-anga)
+[![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga)](https://pepy.tech/projects/azampay-sdk-anga)
+[View Download Stats](https://pepy.tech/project/azampay-sdk-anga)
 
 # ## Supported Banks
 
