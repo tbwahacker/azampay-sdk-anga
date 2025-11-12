@@ -1,27 +1,33 @@
-# AzamPay Python SDK for python developers (Pure/Native python, Django,Flask, FastApi et..c)
+# AzamPay Python SDK
 
-This SDK allows integration with AzamPay payment services.
-whereby Initially the versions below 0.1.8 were only having MNO payments (Mobile Paymments) only. Much thanks to "Wadau" even Bank payments service is now working in released version 0.1.8 +
+**Official Python SDK for integrating AzamPay payment services**  
+Supports **Pure Python**, **Django**, **Flask**, **FastAPI**, and more.
 
-[![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga/week)](https://pepy.tech/projects/azampay-sdk-anga)
-[![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga/month)](https://pepy.tech/projects/azampay-sdk-anga)
-[![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga)](https://pepy.tech/projects/azampay-sdk-anga)
-![PyPI version](https://img.shields.io/pypi/v/azampay-sdk-anga)
+> **Note:** Versions **< 0.1.8** supported **Mobile Network Operator (MNO) payments only**.  
+> **Version 0.1.8+** introduces full **Bank Payments** support.
 
 <p align="start">
-    <img src="/screenshots/azampay-logo.png" width="300" title="Azampay Logo" alt="Azampay Logo">
+  <img src="/screenshots/azampay-logo.png" width="300" alt="AzamPay Logo">
 </p>
 
-# ## Supported Banks
+[![PyPI version](https://img.shields.io/pypi/v/azampay-sdk-anga)](https://pypi.org/project/azampay-sdk-anga/)
+[![Downloads (Week)](https://static.pepy.tech/badge/azampay-sdk-anga/week)](https://pepy.tech/projects/azampay-sdk-anga)
+[![Downloads (Month)](https://static.pepy.tech/badge/azampay-sdk-anga/month)](https://pepy.tech/projects/azampay-sdk-anga)
+[![Downloads (Total)](https://static.pepy.tech/badge/azampay-sdk-anga)](https://pepy.tech/projects/azampay-sdk-anga)
+[![Codacy Grade](https://app.codacy.com/project/badge/Grade/7c21998687604676a25036166702f4ea)](https://app.codacy.com/gh/tbwahacker/azampay-sdk-anga/dashboard)
 
-- Mpesa
-- Airtel Money
-- Halopesa
-- Mix by yas
-- Azampesa
-- CRDB
-- NMB
+## Supported Payment Providers
 
+| Mobile Money (MNO) | Banks |
+|--------------------|-------|
+| M-Pesa             | CRDB  |
+| Airtel Money       | NMB   |
+| Halopesa           |       |
+| Tigo Pesa          |       |
+| Azampesa           |       |
+| Mix by Yas         |       |
+
+---
 
 ## Installation
 
@@ -29,42 +35,52 @@ whereby Initially the versions below 0.1.8 were only having MNO payments (Mobile
 pip install azampay-sdk-anga
 ```
 
-## Usage
-    try:
-        # Generate a unique external ID
-        external_id = str(uuid.uuid4())
+## Quick Start
 
-        # Sample transaction details
-        mobile_number = "0712345678"
-        amount = 5000
-        currency = "TZS"
-        provider = "TIGO" # Mpesa, Airtel, Halotel, Azampesa, Tigo
+```python
+import uuid
+from azampay import AzamPay
 
-        print("Initiating MNO Checkout...")
-        response, ref = AzamPay.mno_checkout(  # For mobile payments
-            mobile_number=mobile_number,
-            amount=amount,
-            currency=currency,
-            provider=provider,
-            external_id=external_id
-        )
+try:
+    # Generate a unique external ID
+    external_id = str(uuid.uuid4())
 
-        print(f"Transaction Reference: {ref}")
-        print("Response:")
-        print(response)
+    # Sample transaction details
+    mobile = "0712345678"
+    amount = 5000
+    currency = "TZS"
+    provider = "TIGO"  # Options: Mpesa, Airtel, Halotel, Azampesa, Tigo
 
-    except Exception as e:
-        print("Transaction failed:")
-        print(str(e))
-## So, what you have to do
-is to create the callback(webhook) url (paste its path to azampay portal) and file in your project to accept and receive payment status && transactionId from Azampay
+    print("Initiating MNO Checkout...")
+    response, ref = AzamPay.mno_checkout(
+        mobile_number=mobile,
+        amount=amount,
+        currency=currency,
+        provider=provider,
+        external_id=external_id
+    )
 
-example callback_url.py (I will use flask for showcase) 'if status is rejected or success it will go update your payment/transaction database table. my example is ==> update_custom_o custom table'
+    print(f"Transaction Reference: {ref}")
+    print("Response:", response)
 
+except Exception as e:
+    print("Transaction failed:", str(e))
 ```
+
+---
+
+## Webhook (Callback) Setup
+
+> **Important:** Register your callback URL in the **AzamPay Developer Portal**.
+
+Create a webhook endpoint to receive payment status updates.
+
+### Example: `callback_url.py` (Flask)
+
+```python
 from flask import Flask, request
 from main import Main
-from db import conn  # your DB connection file (pymysql or similar)
+from db import conn  # Your DB connection (e.g., pymysql)
 
 app = Flask(__name__)
 
@@ -74,7 +90,6 @@ def callback():
         return "Invalid method", 405
 
     try:
-        main = Main(conn)
         data = request.get_json()
     except Exception:
         return "Server error", 500
@@ -85,7 +100,7 @@ def callback():
     utility_ref = data['utilityref']
     status = 'success' if data['transactionstatus'].lower() == 'success' else 'rejected'
 
-    # Query and update transaction if it's still pending
+    main = Main(conn)
     count, result = main.all_query_nolimit_s(
         'transactions',
         'AND status="pending" LIMIT 1',
@@ -94,20 +109,23 @@ def callback():
     )
 
     if count > 0:
-        update = main.update_custom_o(
+        main.update_custom_o(
             'transactions', 'status', status, 'reference', utility_ref, 'AND status="pending"'
         )
         return "Transaction updated", 200
     else:
         return "Transaction not found", 404
-
 ```
-## Optional 
-Create a check.py (Elsewhere not in callback file) file to retrive your payment table and check if status has been changed, if yes or no then the redirect page will notify user as follows through the file 
 
-templates/redirect.html
-```
-<!-- templates/redirect.html -->
+---
+
+## Transaction Status Check & Redirect Page
+
+Create a route to check payment status and redirect users.
+
+### `templates/redirect.html`
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,52 +135,92 @@ templates/redirect.html
 </head>
 <body class="bg-light d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="container text-center">
-        {% if status == 'approved' %}
+        {% if status == 'success' %}
             <div class="alert alert-success shadow p-4 rounded" role="alert">
-                <h1 class="mb-3">🎉 Transaction Approved</h1>
-                <p class="lead">Your transaction was successfully completed.</p>
+                <h1 class="mb-3">Transaction Approved</h1>
+                <p class="lead">Your payment was successful.</p>
                 <a href="/" class="btn btn-success mt-3">Go Home</a>
             </div>
         {% else %}
             <div class="alert alert-danger shadow p-4 rounded" role="alert">
-                <h1 class="mb-3">❌ Transaction Failed</h1>
-                <p class="lead">Sorry, something went wrong. Please try again.</p>
+                <h1 class="mb-3">Transaction Failed</h1>
+                <p class="lead">Payment failed. Please try again.</p>
                 <a href="/" class="btn btn-danger mt-3">Try Again</a>
             </div>
         {% endif %}
     </div>
-
     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>
 ```
 
-## Remind you makesure that your .env in your root project folder must contains keys you got from azampay portal
+---
+
+## Environment Configuration
+
+Create a `.env` file in your project root:
+
+```env
+AZAMPAY_ENVIRONMENT=sandbox        # Use 'production' for live
+AZAMPAY_APP_NAME=your-app-name
+AZAMPAY_CLIENT_ID=your-client-id
+AZAMPAY_CLIENT_SECRET=your-secret
 ```
-AZAMPAY_ENVIRONMENT=sandbox  #production  (if u wanna change it to live then replace that sandbox to production)
-AZAMPAY_APP_NAME=your-azam-app-name-here
-AZAMPAY_CLIENT_ID=your-client-id-here
-AZAMPAY_CLIENT_SECRET=your-secret-here
-```
-AzamPay Success Message Example
-![AzamPay Success Message Example](screenshots/success_request.png)
 
-## Credits and Inspiration
-1. [Anganile Adam (Anga)](https://github.com/tbwahacker)
-2. Thanks much to AzamPay for this support [Azampay Documentation](https://developerdocs.azampay.co.tz/redoc).
-3. Tanzania Developers you are now free using the AzamPay python api
-4. [All Contributors](../../contributors)
+---
 
-## Issues
-Please open an issue here [**GITHUB**](https://github.com/tbwahacker/azampay-sdk-anga/)
+## Success Response Example
 
-## HAPPY ENJOY MAKING PAYMENTS. DON'T FORGET BUYING ME A ☕COFEE 😂😂😂
-## 0685750593 / 0768571150 or gmail : twaloadam@gmail.com / anganileadam87@gmail.com
+![AzamPay Success Message](screenshots/success_request.png)
 
-If you find this package useful, you can support us by starring this repository and sharing it with others.
+---
 
-## Licence
-The MIT License (MIT).
+## Credits & Inspiration
+
+- **Anganile Adam (Anga)** – [GitHub: tbwahacker](https://github.com/tbwahacker)
+- **AzamPay Team** – [Official Docs](https://developerdocs.azampay.co.tz/redoc)
+- **Tanzania Developer Community** – You can now build with AzamPay in Python!
+- [All Contributors](../../contributors)
+
+---
+
+## Issues & Support
+
+Found a bug? Open an issue:  
+[GitHub Issues](https://github.com/tbwahacker/azampay-sdk-anga/issues)
+
+---
+
+## Support the Project
+
+If you find this SDK useful, please:
+
+- Star this repository
+- Share it with fellow developers
+
+**Buy me a coffee**  
+**M-Pesa:** `0685750593` | `0768571150`  
+**Email:** `twaloadam@gmail.com` | `anganileadam87@gmail.com`
+
+---
+
+## License
+
+[MIT License](LICENSE) – Free to use, modify, and distribute.
+
+---
 
 ## Contribute
-""""  Feel Free to contribute by forking the Repo """"
+
+> **"Feel free to contribute!"**
+
+1. Fork the repository
+2. Create a feature branch
+3. Document your changes
+4. Submit a Pull Request with a review request
+
+---
+
+**Happy coding! Make payments easy with AzamPay & Python.**
+```
+```
