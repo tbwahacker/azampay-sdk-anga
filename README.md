@@ -165,4 +165,4 @@ If you find this package useful, you can support us by staring this repository a
 The MIT License (MIT).
 
 ## Contribute
-""""  Feel Free to contribute by forking the Repo """"
+""""  Feel Free to contribute by forking the Repo or create feature branches and don't forget to document what you have done also when merging you should ask for a review """"
