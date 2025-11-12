@@ -3,6 +3,7 @@
 This SDK allows integration with AzamPay payment services.
 whereby Initially the versions below 0.1.8 were only having MNO payments (Mobile Paymments) only. The to "Wadau" even Bank payments service is now working in released version 0.1.8 +
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/703366c001f344d7bde8c4a38588f2f8)](https://app.codacy.com/gh/tbwahacker/azampay-sdk-anga?utm_source=github.com&utm_medium=referral&utm_content=tbwahacker/azampay-sdk-anga&utm_campaign=Badge_Grade)
 [![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga/week)](https://pepy.tech/projects/azampay-sdk-anga)
 [![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga/month)](https://pepy.tech/projects/azampay-sdk-anga)
 [![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga)](https://pepy.tech/projects/azampay-sdk-anga)
