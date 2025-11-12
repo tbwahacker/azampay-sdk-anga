@@ -1,7 +1,7 @@
 # AzamPay Python SDK for python developers (Pure/Native python, Django,Flask, FastApi et..c)
 
 This SDK allows integration with AzamPay payment services.
-whereby Initially the versions below 0.1.8 were only having MNO payments (Mobile Paymments) only. The to "Wadau" even Bank payments service is now working in released version 0.1.8 +
+whereby Initially the versions below 0.1.8 were only having MNO payments (Mobile Paymments) only. Much thanks to "Wadau" even Bank payments service is now working in released version 0.1.8 +
 
 [![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga/week)](https://pepy.tech/projects/azampay-sdk-anga)
 [![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga/month)](https://pepy.tech/projects/azampay-sdk-anga)
@@ -159,7 +159,7 @@ Please open an issue here [**GITHUB**](https://github.com/tbwahacker/azampay-sdk
 ## HAPPY ENJOY MAKING PAYMENTS. DON'T FORGET BUYING ME A ☕COFEE 😂😂😂
 ## 0685750593 / 0768571150 or gmail : twaloadam@gmail.com / anganileadam87@gmail.com
 
-If you find this package useful, you can support us by staring this repository and sharing it with others.
+If you find this package useful, you can support us by starring this repository and sharing it with others.
 
 ## Licence
 The MIT License (MIT).
