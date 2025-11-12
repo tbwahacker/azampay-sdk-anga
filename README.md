@@ -6,7 +6,7 @@ Supports **Pure Python**, **Django**, **Flask**, **FastAPI**, and more.
 > **Note:** Versions **< 0.1.8** supported **Mobile Network Operator (MNO) payments only**.  
 > **Version 0.1.8+** introduces full **Bank Payments** support.
 
-<p align="center">
+<p align="start">
   <img src="/screenshots/azampay-logo.png" width="300" alt="AzamPay Logo">
 </p>
 
