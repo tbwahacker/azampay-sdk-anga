@@ -8,6 +8,9 @@ whereby Initially the versions below 0.1.8 were only having MNO payments (Mobile
 [![PyPI Downloads](https://static.pepy.tech/badge/azampay-sdk-anga)](https://pepy.tech/projects/azampay-sdk-anga)
 ![PyPI version](https://img.shields.io/pypi/v/azampay-sdk-anga)
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7c21998687604676a25036166702f4ea)](https://app.codacy.com/gh/tbwahacker/azampay-sdk-anga/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+
 <p align="start">
     <img src="/screenshots/azampay-logo.png" width="300" title="Azampay Logo" alt="Azampay Logo">
 </p>
