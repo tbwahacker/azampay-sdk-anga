@@ -1,4 +1,3 @@
-```markdown
 # AzamPay Python SDK
 
 **Official Python SDK for integrating AzamPay payment services**  
@@ -8,15 +7,22 @@ Supports **Pure Python**, **Django**, **Flask**, **FastAPI**, and more.
 > **Version 0.1.8+** introduces full **Bank Payments** support.
 
 <p align="center">
-  <img src="/screenshots/azampay-logo.png" width="300" alt="AzamPay Logo">
+  <a href="https://pypi.org/project/azampay-sdk-anga/">
+    <img src="https://img.shields.io/pypi/v/azampay-sdk-anga" alt="PyPI Version">
+  </a>
+  <a href="https://pepy.tech/projects/azampay-sdk-anga">
+    <img src="https://static.pepy.tech/badge/azampay-sdk-anga/week" alt="Downloads (Week)">
+  </a>
+  <a href="https://pepy.tech/projects/azampay-sdk-anga">
+    <img src="https://static.pepy.tech/badge/azampay-sdk-anga/month" alt="Downloads (Month)">
+  </a>
+  <a href="https://pepy.tech/projects/azampay-sdk-anga">
+    <img src="https://static.pepy.tech/badge/azampay-sdk-anga" alt="Downloads (Total)">
+  </a>
+  <a href="https://app.codacy.com/gh/tbwahacker/azampay-sdk-anga/dashboard">
+    <img src="https://app.codacy.com/project/badge/Grade/7c21998687604676a25036166702f4ea" alt="Codacy Grade">
+  </a>
 </p>
-
-[![PyPI version](https://img.shields.io/pypi/v/azampay-sdk-anga)](https://pypi.org/project/azampay-sdk-anga/)
-[![Downloads (Week)](https://static.pepy.tech/badge/azampay-sdk-anga/week)](https://pepy.tech/projects/azampay-sdk-anga)
-[![Downloads (Month)](https://static.pepy.tech/badge/azampay-sdk-anga/month)](https://pepy.tech/projects/azampay-sdk-anga)
-[![Downloads (Total)](https://static.pepy.tech/badge/azampay-sdk-anga)](https://pepy.tech/projects/azampay-sdk-anga)
-[![Codacy Grade](https://app.codacy.com/project/badge/Grade/7c21998687604676a25036166702f4ea)](https://app.codacy.com/gh/tbwahacker/azampay-sdk-anga/dashboard)
-
 ---
 
 ## Supported Payment Providers
@@ -37,8 +43,6 @@ Supports **Pure Python**, **Django**, **Flask**, **FastAPI**, and more.
 ```bash
 pip install azampay-sdk-anga
 ```
-
----
 
 ## Quick Start
 
