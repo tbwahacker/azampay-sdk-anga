@@ -224,6 +224,3 @@ If you find this SDK useful, please:
 **Happy coding! Make payments easy with AzamPay & Python.**
 ```
 ```
-
-**Save this as `README.md`** in your project root.  
-All formatting, badges, code blocks, and structure are preserved and professionally organized.
