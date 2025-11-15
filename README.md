@@ -75,6 +75,65 @@ except Exception as e:
 
 Create a webhook endpoint to receive payment status updates.
 
+### Example: `callback_url.py` (Django)
+
+```python
+import json
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
+from main import Main       # Your class
+from db import conn         # Your DB connection (e.g., pymysql)
+
+
+@csrf_exempt
+def callback_view(request):
+    if request.method != "POST":
+        return HttpResponse("Invalid method", status=405)
+
+    try:
+        data = json.loads(request.body.decode("utf-8"))
+    except Exception:
+        return HttpResponse("Server error", status=500)
+
+    if not data or "utilityref" not in data or "transactionstatus" not in data:
+        return HttpResponse("Invalid payload", status=400)
+
+    utility_ref = data["utilityref"]
+    status = "success" if data["transactionstatus"].lower() == "success" else "rejected"
+
+    main = Main(conn)
+
+    count, result = main.all_query_nolimit_s(
+        "transactions",
+        'AND status="pending" LIMIT 1',
+        "reference",
+        utility_ref
+    )
+
+    if count > 0:
+        main.update_custom_o(
+            "transactions",
+            "status",
+            status,
+            "reference",
+            utility_ref,
+            'AND status="pending"'
+        )
+        return HttpResponse("Transaction updated", status=200)
+
+    return HttpResponse("Transaction not found", status=404)
+
+
+# Example: urls.py will look like
+from django.urls import path
+from .views import callback_view
+
+urlpatterns = [
+    path("callback/", callback_view, name="callback"),
+]
+```
+
 ### Example: `callback_url.py` (Flask)
 
 ```python
