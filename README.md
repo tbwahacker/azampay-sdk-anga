@@ -35,6 +35,21 @@ Supports **Pure Python**, **Django**, **Flask**, **FastAPI**, and more.
 pip install azampay-sdk-anga
 ```
 
+## Environment Configuration
+
+Go to your account at https://developers.azampay.co.tz/ copy client-id, client-secret and app-name details
+
+Create a `.env` file in your project root and paste the details/configs:
+
+```env
+AZAMPAY_ENVIRONMENT=sandbox        # Use 'production' for live
+AZAMPAY_APP_NAME=your-app-name
+AZAMPAY_CLIENT_ID=your-client-id
+AZAMPAY_CLIENT_SECRET=your-secret
+```
+
+---
+
 ## Quick Start
 
 ```python
@@ -182,9 +197,15 @@ def callback():
 
 ---
 
-## Transaction Status Check & Redirect Page
+## Success Response Example
 
-Create a route to check payment status and redirect users.
+![AzamPay Success Message](screenshots/success_request.png)
+
+---
+
+## Transaction Status Check & Redirect Page (Optional and you can design according to your code flow or tech)
+
+Create a route to check payment status and redirect users. (Optional and you can design according to your code flow or tech)
 
 ### `templates/redirect.html`
 
@@ -216,25 +237,6 @@ Create a route to check payment status and redirect users.
 </body>
 </html>
 ```
-
----
-
-## Environment Configuration
-
-Create a `.env` file in your project root:
-
-```env
-AZAMPAY_ENVIRONMENT=sandbox        # Use 'production' for live
-AZAMPAY_APP_NAME=your-app-name
-AZAMPAY_CLIENT_ID=your-client-id
-AZAMPAY_CLIENT_SECRET=your-secret
-```
-
----
-
-## Success Response Example
-
-![AzamPay Success Message](screenshots/success_request.png)
 
 ---
 
