@@ -23,7 +23,6 @@ Supports **Pure Python**, **Django**, **Flask**, **FastAPI**, and more.
 | M-Pesa             | CRDB  |
 | Airtel Money       | NMB   |
 | Halopesa           |       |
-| Tigo Pesa          |       |
 | Azampesa           |       |
 | Mix by Yas         |       |
 
