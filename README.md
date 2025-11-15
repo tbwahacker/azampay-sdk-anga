@@ -102,6 +102,7 @@ def callback_view(request):
     utility_ref = data["utilityref"]
     status = "success" if data["transactionstatus"].lower() == "success" else "rejected"
 
+    ######## Your logic to update status in your db, depends on your database codes and setups  ###########
     main = Main(conn)
 
     count, result = main.all_query_nolimit_s(
@@ -120,6 +121,7 @@ def callback_view(request):
             utility_ref,
             'AND status="pending"'
         )
+     ################ End of Db save status ######################
         return HttpResponse("Transaction updated", status=200)
 
     return HttpResponse("Transaction not found", status=404)
@@ -159,6 +161,7 @@ def callback():
     utility_ref = data['utilityref']
     status = 'success' if data['transactionstatus'].lower() == 'success' else 'rejected'
 
+    ######## Your logic to update status in your db, depends on your database codes and setups  ###########
     main = Main(conn)
     count, result = main.all_query_nolimit_s(
         'transactions',
@@ -174,6 +177,7 @@ def callback():
         return "Transaction updated", 200
     else:
         return "Transaction not found", 404
+   ################ End of Db save status ######################
 ```
 
 ---
