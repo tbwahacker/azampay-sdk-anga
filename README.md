@@ -1,6 +1,6 @@
 # AzamPay Python SDK
 
-**Official Python SDK for integrating AzamPay payment services**  
+**Unofficial Python SDK for integrating AzamPay payment services**  
 Supports **Pure Python**, **Django**, **Flask**, **FastAPI**, and more.
 
 > **Note:** Versions **< 0.1.8** supported **Mobile Network Operator (MNO) payments only**.  
