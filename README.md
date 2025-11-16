@@ -87,7 +87,7 @@ except Exception as e:
 
 > **Important:** Register your callback URL in the **AzamPay Developer Portal**.
 
-Create a webhook endpoint to receive payment status updates.
+Create a webhook endpoint to receive payment status updates somewhere in your project.
 
 ### Example: `callback_url.py` (Django)
 
